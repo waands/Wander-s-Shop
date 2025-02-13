@@ -3,10 +3,16 @@ const cors = require("cors");
 const bodyparser = require("body-parser");
 
 const app = express();
+const PORT = process.env.PORT || 4242;
+const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:4200';
+
 app.use(express.static("public"));
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
-app.use(cors({ origin: true, credentials: true }));
+app.use(cors({
+  origin: FRONTEND_URL,
+  credentials: true
+}));
 
 const stripe = require("stripe")(
   "sk_test_51QoXFXPg7IpyOK8rNzeyf5F1yGy0ZHEcHvbXYBO5qpXjLSifqdo3o1job6MOumIP66DCrnOOraTuVuiba4ZrRZnG00C99vj0bv"
@@ -72,8 +78,8 @@ app.post("/checkout", async (req, res, next) => {
         quantity: item.quantity,
       })),
       mode: "payment",
-      success_url: "http://localhost:4242/success.html",
-      cancel_url: "http://localhost:4242/cancel.html",
+      success_url: `${FRONTEND_URL}/success.html`,
+      cancel_url: `${FRONTEND_URL}/cancel.html`,
     });
 
     res.status(200).json(session);
@@ -82,4 +88,11 @@ app.post("/checkout", async (req, res, next) => {
   }
 });
 
-app.listen(4242, () => console.log("Server is running on port 4242"));
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
+export const environment = {
+  production: true,
+  apiUrl: 'https://your-backend-url.herokuapp.com' // Will update after backend deployment
+};

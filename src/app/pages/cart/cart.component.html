@@ -79,7 +79,7 @@
     <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
   </table>
 </mat-card>
-<mat-card *ngIf="!cart.items.length">
+<mat-card class="max-w-7xl mx-auto" *ngIf="!cart.items.length">
   <p>Seu carrinho está vazio</p>
   <button mat-raised-button routerLink="/home">Voltar as compras</button>
 </mat-card>
