@@ -12,9 +12,15 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors({
-  origin: FRONTEND_URL,
-  credentials: true
+  origin: ['https://wanders-webshop.vercel.app', 'http://localhost:4200'],
+  methods: ['GET', 'POST'],
+  credentials: true,
+  optionsSuccessStatus: 200
 }));
+
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok' });
+});
 
 app.post("/checkout", async (req, res, next) => {
   try {
