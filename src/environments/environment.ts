@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'https://wanders-webshop-backend.onrender.com',
+  stripePublicKey: 'pk_test_51QoXFXPg7IpyOK8rOvuAKZktFSifpPedYVGE2bLFTKRn3GozZ7iqJD6tmTczHySXdjZdN8HUcHGGg4c3UCFo7poJ00ujGx3QBu'
 };
 
 /*

@@ -12,8 +12,8 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors({
-  origin: ['https://wanders-webshop.vercel.app', 'http://localhost:4200'],
-  methods: ['GET', 'POST'],
+  origin: ['https://wanders-webshop-4dlbpd48y-waands-projects.vercel.app', 'http://localhost:4200'],
+  methods: ['GET', 'POST', 'OPTIONS'],
   credentials: true,
   optionsSuccessStatus: 200
 }));

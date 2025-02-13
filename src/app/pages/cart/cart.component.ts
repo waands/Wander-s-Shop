@@ -3,6 +3,7 @@ import { Component, OnInit } from "@angular/core";
 import { loadStripe } from "@stripe/stripe-js";
 import { Cart, CartItem } from "src/app/models/cart.model";
 import { CartService } from "src/app/services/cart.service";
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: "app-cart",
@@ -76,14 +77,18 @@ export class CartComponent implements OnInit {
   }
 
   onCheckout(): void {
-    this.http.post('http://localhost:4242/checkout', {
+    this.http.post(`${environment.apiUrl}/checkout`, {
       items: this.cart.items
+    }, {
+      withCredentials: true,
+      headers: {
+        'Content-Type': 'application/json'
+      }
     }).subscribe(async(res:any) => {
-      let stripe = await loadStripe('pk_test_51QoXFXPg7IpyOK8rOvuAKZktFSifpPedYVGE2bLFTKRn3GozZ7iqJD6tmTczHySXdjZdN8HUcHGGg4c3UCFo7poJ00ujGx3QBu');
+      let stripe = await loadStripe(environment.stripePublicKey);
       stripe?.redirectToCheckout({
         sessionId: res.id
       })
     });
-    
   }
 }
