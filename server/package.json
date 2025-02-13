@@ -2,10 +2,11 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --max-old-space-size=2048 server.js",
+    "start": "node server.js",
     "build": "echo 'No build step required'"
   },
   "keywords": [],

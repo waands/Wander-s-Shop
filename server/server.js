@@ -1,22 +1,20 @@
-const express = require("express");
-const cors = require("cors");
-const bodyparser = require("body-parser");
+import express from 'express';
+import cors from 'cors';
+import Stripe from 'stripe';
+import bodyParser from 'body-parser';
 
 const app = express();
 const PORT = process.env.PORT || 4242;
 const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:4200';
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 app.use(express.static("public"));
-app.use(bodyparser.urlencoded({ extended: false }));
-app.use(bodyparser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(cors({
   origin: FRONTEND_URL,
   credentials: true
 }));
-
-const stripe = require("stripe")(
-  "sk_test_51QoXFXPg7IpyOK8rNzeyf5F1yGy0ZHEcHvbXYBO5qpXjLSifqdo3o1job6MOumIP66DCrnOOraTuVuiba4ZrRZnG00C99vj0bv"
-);
 
 app.post("/checkout", async (req, res, next) => {
   try {
