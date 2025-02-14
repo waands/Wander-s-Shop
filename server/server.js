@@ -64,8 +64,8 @@ app.post("/checkout", async (req, res, next) => {
         quantity: item.quantity,
       })),
       mode: "payment",
-      success_url: `${FRONTEND_URL}/success.html`,
-      cancel_url: `${FRONTEND_URL}/cancel.html`,
+      success_url: `${FRONTEND_URL}/success`,
+      cancel_url: `${FRONTEND_URL}/cancel`,
     });
 
     res.status(200).json(session);
