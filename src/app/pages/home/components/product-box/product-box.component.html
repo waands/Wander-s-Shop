@@ -10,7 +10,7 @@
         <p *ngIf="fullWidthMode">{{product.description}}</p>
       </div>
       <div class="flex justify-between">
-        <span class="text-red-400">{{product.price| currency:"R$"}}</span>
+        <span class="text-red-400">{{product.price | currency:"R$"}}</span>
         <button (click)="onAddToCart()">
             <mat-icon class="text-gray-500">shopping_cart</mat-icon>
         </button>
