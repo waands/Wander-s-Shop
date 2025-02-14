@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-success',
-  templateURL: './success.component.html',
+  templateUrl: './success.component.html',
 })
 export class SuccessComponent implements OnInit {
 
