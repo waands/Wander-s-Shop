@@ -12,7 +12,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors({
-  origin: ['https://wanders-webshop-4dlbpd48y-waands-projects.vercel.app', 'http://localhost:4200'],
+  origin: ['https://wanders-webshop.vercel.app/home', 'http://localhost:4200'],
   methods: ['GET', 'POST', 'OPTIONS'],
   credentials: true,
   optionsSuccessStatus: 200
@@ -49,26 +49,6 @@ app.post("/checkout", async (req, res, next) => {
             },
           },
         },
-        {
-          shipping_rate_data: {
-            type: "fixed_amount",
-            fixed_amount: {
-              amount: 1500,
-              currency: "brl",
-            },
-            display_name: "Next day air",
-            delivery_estimate: {
-              minimum: {
-                unit: "business_day",
-                value: 1,
-              },
-              maximum: {
-                unit: "business_day",
-                value: 1,
-              },
-            },
-          },
-        },
       ],
       line_items: req.body.items.map((item) => ({
         price_data: {
@@ -95,8 +75,3 @@ app.post("/checkout", async (req, res, next) => {
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on port ${PORT}`);
 });
-
-export const environment = {
-  production: true,
-  apiUrl: 'https://your-backend-url.herokuapp.com' // Will update after backend deployment
-};
