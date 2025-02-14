@@ -8,15 +8,17 @@ const PORT = process.env.PORT || 4242;
 const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:4200';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-app.use(express.static("public"));
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+
 app.use(cors({
-  origin: ['https://wanders-webshop.vercel.app/home', 'http://localhost:4200'],
+  origin: ['https://wanders-webshop.vercel.app', 'http://localhost:4200'],
   methods: ['GET', 'POST', 'OPTIONS'],
   credentials: true,
   optionsSuccessStatus: 200
 }));
+
+app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok' });
