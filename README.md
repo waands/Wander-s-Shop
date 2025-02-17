@@ -1,27 +1,45 @@
-# Webshop
+# Wander's Webshop
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.
+Wander's Webshop é uma aplicação web de e-commerce completa, construída utilizando tecnologias modernas. O projeto demonstra uma implementação full-stack com foco em design responsivo, processamento seguro de pagamentos e uma experiência de usuário fluida.
 
-## Development server
+## Tecnologias Utilizadas
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Frontend
+- **Angular:** Para construir uma interface de usuário dinâmica e responsiva.
+- **TypeScript:** Para segurança de tipos e melhoria na qualidade do código.
+- **Tailwind CSS:** Para estilização, garantindo um design consistente e responsivo.
+- **Angular Material:** Para componentes de UI modernos e acessíveis.
 
-## Code scaffolding
+### Backend
+- **Node.js:** Para um ambiente de servidor robusto e escalável.
+- **Express:** Para criar uma API RESTful que lida com requisições HTTP e gerencia a lógica de negócios.
+- **Stripe API:** Para processamento seguro de pagamentos.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Hospedagem
+- **Vercel:** Para hospedar o frontend, proporcionando desempenho otimizado e escalabilidade automática.
+- **Render:** Para hospedar o backend, garantindo um ambiente de servidor confiável e escalável.
 
-## Build
+## Funcionalidades
+- **Design Responsivo:** Garante que a aplicação funcione perfeitamente em diferentes dispositivos.
+- **Pagamentos Seguros:** Integrado com Stripe para processamento seguro de pagamentos.
+- **Gerenciamento de Produtos:** Permite aos usuários navegar, filtrar e buscar produtos.
+- **Carrinho de Compras:** Atualizações em tempo real e gerenciamento do carrinho.
+- **Gerenciamento de Pedidos:** Lida com a criação e gerenciamento de pedidos.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Estrutura do Projeto e Padrões de Design
+- **Arquitetura Baseada em Componentes:** Promove a reutilização e separação de preocupações.
+- **Arquitetura Orientada a Serviços:** Gerencia estado e manipulação de dados através de serviços do Angular.
+- **BehaviorSubject para Gerenciamento de Estado:** Permite atualizações em tempo real e programação reativa.
+- **API RESTful:** Adere aos princípios REST para gerenciamento de recursos.
 
-## Running unit tests
+## Iniciando
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Pré-requisitos
+- **Node.js:** Certifique-se de ter o Node.js instalado.
+- **Angular CLI:** Instale o Angular CLI globalmente usando `npm install -g @angular/cli`
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Instalação
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/waands/webshop.git
+   cd webshop
